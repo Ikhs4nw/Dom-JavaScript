@@ -1,31 +1,31 @@
 var items = [
   {
-    id: '001',
-    name: 'Keyboard Logitek',
+    id: "001",
+    name: "Keyboard Logitek",
     price: 60000,
-    desc: 'Keyboard yang mantap untuk kantoran',
-    image: 'logitek.jpg',
+    desc: "Keyboard yang mantap untuk kantoran",
+    image: "logitek.jpg",
   },
   {
-    id: '002',
-    name: 'Keyboard MSI',
+    id: "002",
+    name: "Keyboard MSI",
     price: 300000,
-    desc: 'Keyboard gaming MSI mekanik',
-    image: 'msi.jpg',
+    desc: "Keyboard gaming MSI mekanik",
+    image: "msi.jpg",
   },
   {
-    id: '003',
-    name: 'Mouse Genius',
+    id: "003",
+    name: "Mouse Genius",
     price: 50000,
-    desc: 'Mouse Genius biar lebih pinter',
-    image: 'genius.jpeg',
+    desc: "Mouse Genius biar lebih pinter",
+    image: "genius.jpeg",
   },
   {
-    id: '004',
-    name: 'Mouse Jerry',
+    id: "004",
+    name: "Mouse Jerry",
     price: 30000,
-    desc: 'Mouse yang disukai kucing',
-    image: 'jerry.jpg',
+    desc: "Mouse yang disukai kucing",
+    image: "jerry.jpg",
   },
 ];
 
@@ -37,8 +37,8 @@ const categories = [
   ),
 ];
 
-document.getElementById('formItem').addEventListener('submit', (e) => {
-  let value_inputan = document.getElementById('keyword').value.toLowerCase();
+document.getElementById("formItem").addEventListener("submit", (e) => {
+  let value_inputan = document.getElementById("keyword").value.toLowerCase();
   const filteredData = categories.filter((item) => {
     return item.name.toLowerCase().includes(value_inputan);
   });
@@ -46,7 +46,7 @@ document.getElementById('formItem').addEventListener('submit', (e) => {
 });
 
 const displayItem = (items) => {
-  document.getElementById('listBarang').innerHTML = items
+  document.getElementById("listBarang").innerHTML = items
     .map((item) => {
       var { id, name, price, desc, image } = item;
       return `
@@ -63,12 +63,12 @@ const displayItem = (items) => {
             </div>
             `;
     })
-    .join('');
+    .join("");
 
   // Tambahkan event listener untuk setiap tombol "Tambahkan ke keranjang"
-  document.querySelectorAll('.addCart').forEach((button) => {
-    button.addEventListener('click', (e) => {
-      const itemId = e.target.getAttribute('data-id');
+  document.querySelectorAll(".addCart").forEach((button) => {
+    button.addEventListener("click", (e) => {
+      const itemId = e.target.getAttribute("data-id");
       addToCart(itemId);
     });
   });
@@ -77,7 +77,7 @@ const displayItem = (items) => {
 const addToCart = (itemId) => {
   cartCount++;
   document.getElementById(
-    'cart'
+    "cart"
   ).innerHTML = `<i class="fas fa-shopping-cart"></i>(${cartCount})`;
   console.log(`Item dengan ID ${itemId} berhasil ditambahkan ke keranjang`);
 };
